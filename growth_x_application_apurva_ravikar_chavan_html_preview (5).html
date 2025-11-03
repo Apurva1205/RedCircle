@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apurva Ravikar Chavan — Red Circle Application</title>
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:#121827;
+      --muted:#93a4bf;
+      --text:#e8eefc;
+      --accent:#7c9cff;
+      --chip:#1b2540;
+      --good:#c8f36a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 10% -10%, #1b2440 0, transparent 60%), var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    header{
+      padding:48px 20px 16px;
+      max-width:1000px; margin:0 auto;
+    }
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:6px 12px; border-radius:999px; background:var(--chip);
+      color:var(--muted); font-size:14px; letter-spacing:.2px;
+    }
+    h1{
+      margin:12px 0 8px; font-size:34px; letter-spacing:.2px;
+      background: linear-gradient(90deg, var(--text), #bcd1ff);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .sub{color:var(--muted); margin-top:0}
+    .links{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    .links a{
+      text-decoration:none; color:var(--accent); background:#0e1630;
+      padding:8px 12px; border:1px solid #243157; border-radius:10px; font-weight:600;
+    }
+    main{max-width:1000px; margin:0 auto; padding:12px 20px 60px}
+    .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:22px}
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)), var(--card);
+      border:1px solid #223055; border-radius:18px; padding:18px 18px 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    h2{font-size:20px; margin:0 0 8px}
+    h3{font-size:16px; margin:18px 0 8px; color:#cdd9ff}
+    .q{color:#c9d4ff; font-weight:600; margin-top:16px}
+    .a{margin:6px 0 0}
+    ul{margin:6px 0 10px 22px}
+    li{margin:4px 0}
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 2px}
+    .chip{background:var(--chip); color:#c9d4ff; padding:4px 10px; border-radius:999px; font-size:12px; border:1px solid #2c3b68}
+    .kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px}
+    .kpi div{background:#0e1630; border:1px solid #243157; border-radius:14px; padding:10px}
+    .kpi b{display:block; font-size:20px; color:var(--good)}
+    footer{max-width:1000px; margin:20px auto 60px; color:var(--muted); text-align:center; font-size:13px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px; background:#0e1630; padding:2px 6px; border-radius:6px; border:1px solid #26325a}
+    .tabs{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+  .tabs button{background:#0e1630; border:1px solid #243157; color:#cdd9ff; padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600}
+  .tabs button.active{outline:2px solid #7c9cff}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+  .case-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+  @media (max-width:900px){.case-grid{grid-template-columns:1fr}}
+  .metric{background:#0e1630; border:1px solid #243157; border-radius:12px; padding:10px}
+    /* Colorful theme variables when body has .color */
+  body.color{ --bg:#0a0516; --card:#18122B; --muted:#9cb3ff; --text:#F3F4FF; --accent:#FF7EDB; --chip:#2B1748; --good:#7CF8A9; }
+  body.color{ background: radial-gradient(900px 500px at 10% -10%, #2e1455 0, transparent 60%),
+                         radial-gradient(700px 400px at 110% -20%, #1b6cff33 0, transparent 60%),
+                         linear-gradient(180deg,#0a0516 0,#0b0f19 100%); }
+  .chip.rainbow{ background:linear-gradient(135deg,#5b8cff, #ff7edb 50%, #7cf8a9); border:0; color:#0b0f19; font-weight:700 }
+  .card.border-glow{ border:1px solid transparent; background:linear-gradient(var(--card), var(--card)) padding-box,
+                                          linear-gradient(135deg,#5b8cff,#ff7edb,#7cf8a9) border-box; }
+  #toggleColor{ background:#0e1630; border:1px solid #243157; color:#cdd9ff; padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600 }
+  </style>
+</head>
+<body class="color">
+  <header>
+    <span class="pill">🎯 Red Circle — Machine Learning Engineer</span>
+    <h1>Apurva Ravikar Chavan</h1>
+    <p class="sub">Data Scientist • ML Engineer — end-to-end ML, analytics, experimentation, and production pipelines.</p>
+    <div class="links">
+      <a href="mailto:apurvachavan125@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/apurvachavan125/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Apurva1205" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main class="grid">
+  <section class="card border-glow">
+    <span class="chip rainbow">Washington DC · In‑office with WFH flexibility</span>
+    <h2 style="margin-top:8px">Why Red Circle</h2>
+    <p>Red Circle partners closely with founders to scale teams—exactly the environment where I thrive: fast cycles, measurable outcomes, and production‑grade ML. The LIFELENZ scheduling/forecasting problem is a great fit for my background in time‑series modeling, MLOps, and cost/latency‑aware serving.</p>
+
+    <h3>Pitch — <em>ML Ops Reliability Kit</em> for Scheduling & Forecasting</h3>
+    <ul>
+      <li><b>30 days:</b> Stand up a <i>standard eval & observability stack</i> (MLflow runs, drift monitors, feature validation) and a <i>rolling‑origin backtest</i> harness for forecasting. Ship canary routes with FastAPI + Docker.</li>
+      <li><b>60 days:</b> Productionize pipelines with <i>Airflow/Prefect</i>, add <i>model registry</i>, deploy <i>AB/canary</i> strategies, and wire alerting (latency, error rate, data freshness).</li>
+      <li><b>90 days:</b> Launch <i>self‑serve dashboards</i> (uptime, MAPE/MAE by segment, cost/1k predictions), implement <i>auto‑retrain</i> + guardrails, and publish a playbook so new models onboard quickly.</li>
+    </ul>
+
+    <h3>How I Fit the Role</h3>
+    <ul>
+      <li><b>MLOps lifecycle:</b> experiment tracking (MLflow/DVC), feature stores, containers, CI/CD, canary releases.</li>
+      <li><b>Realtime serving:</b> FastAPI/Ray‑Serve basics; latency budgets and failure buckets.</li>
+      <li><b>Time‑series & demand:</b> GBM/LSTM hybrids with seasonality & event features; rolling backtests.</li>
+      <li><b>Collaboration:</b> async‑friendly docs, clean PRs, and cross‑team delivery with Data/DevOps.</li>
+    </ul>
+
+    <div class="kpi">
+      <div><b>p95 ↓</b>Latency target</div>
+      <div><b>MAPE ↓</b>By segment</div>
+      <div><b>↑ Uptime</b>Monitored</div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Profile & Role Fit</h2>
+    <div style="display:flex; gap:12px; align-items:center; margin:8px 0 6px">
+      <div style="width:44px; height:44px; border-radius:50%; background:#0e1630; border:1px solid #243157; display:flex; align-items:center; justify-content:center; font-weight:800;">AC</div>
+      <div>
+        <div style="font-weight:700;">Apurva Ravikar Chavan</div>
+        <div style="color:#93a4bf; font-size:13px;">Data Scientist / ML Engineer</div>
+        <div style="font-size:13px; margin-top:4px"><a href="mailto:apurvachavan125@gmail.com">apurvachavan125@gmail.com</a> · <a href="https://www.linkedin.com/in/apurvachavan125/" target="_blank">LinkedIn</a> · <a href="https://github.com/Apurva1205" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">End‑to‑end ML</span>
+      <span class="chip">Experimentation</span>
+      <span class="chip">Taxonomies & Sampling</span>
+      <span class="chip">LLM Evals</span>
+      <span class="chip">SQL & Python</span>
+      <span class="chip">Airflow/dbt</span>
+      <span class="chip">AWS/GCP</span>
+    </div>
+
+    <h3>Signals</h3>
+    <ul>
+      <li>Productionized models with CI/CD and cost controls.</li>
+      <li>Clear KPI definitions, backtests, and dashboards.</li>
+      <li>Comfortable in ambiguous, fast product cycles.</li>
+    </ul>
+
+    <h2 style="margin-top:14px">Experience</h2>
+    <div class="metric" style="margin-top:8px">
+      <div style="display:flex; justify-content:space-between; align-items:baseline">
+        <div><b>Data Scientist Intern</b> — Mental Model Algorithms, Ideatrix Cogn AI Lab Corp</div>
+        <div style="color:#93a4bf; font-size:12px">Jul 2025 – Present</div>
+      </div>
+      <ul style="margin-top:6px">
+        <li>Design and implement reasoning algorithms for multi‑agent dialogue games using LLMs and cognitive models.</li>
+        <li>Apply cognitive science, neuroscience, and game theory to model deception, inference, trust, and alignment.</li>
+        <li>Build tools to analyze agent behavior and belief dynamics in simulated social‑deduction games (Werewolf Arena).</li>
+        <li>Collaborate with researchers to enhance the Werewolf Mental Model Arena platform.</li>
+      </ul>
+    </div>
+
+    <h2 style="margin-top:14px">Idea Pitch — Grow LLM Search Visibility</h2>
+    <p style="margin-top:6px">A fast, measurable plan to improve a client's brand presence inside AI answers.</p>
+    <ul>
+      <li><b>Audit & Taxonomy (Week 1):</b> Crawl seed queries; define intents (how‑to, compare, transactional); label brand/entity coverage; set sampling rules to prevent bias.</li>
+      <li><b>Eval Harness (Week 2):</b> Deterministic prompts per model; rubric graders (accuracy, attribution, actionability); regression suite on each prompt/model change; budget caps.</li>
+      <li><b>Baseline Metrics (Week 3):</b> Presence@k, Coverage, Share‑of‑Voice, Answer‑Quality, Cost/Qualified‑Answer, Latency.</li>
+      <li><b>Experiments (Weeks 4–6):</b> Content clustering, schema/FAQ rewrites, retrieval snippet tuning; A/B design with lift vs. cost tracking.</li>
+      <li><b>Guardrails:</b> hallucination checks, source‑attribution rate, and reversible tool actions for agentic workflows.</li>
+    </ul>
+
+    <h3>30 / 60 / 90</h3>
+    <ul>
+      <li><b>30 days:</b> Ship baseline dashboard + weekly SoV/quality reports for 1–2 pilot brands; document taxonomy and sampling.</li>
+      <li><b>60 days:</b> Roll out eval harness to additional clients; integrate with content ops; hit ≥10% lift in Presence@k for pilots.</li>
+      <li><b>90 days:</b> Add predictive scoring to prioritize content work; automate experiment suggestions; publish playbook.</li>
+    </ul>
+  </aside>
+</main>
+
+
+  <footer>
+    Built by Apurva • Last updated automatically
+  </footer>
+<script>
+  (function(){
+    const tabs = document.querySelectorAll('.tabBtn');
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(btn=>btn.addEventListener('click',()=>{
+      tabs.forEach(b=>b.classList.remove('active'));
+      panels.forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab)?.classList.add('active');
+    }));
+  })();
+</script>
+</body>
+</html>
